@@ -1,0 +1,461 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: black;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  /* منع العرض الزائد */
+}
+
+.main-content {
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  padding-bottom: 600px;
+  /* عوض عن ارتفاع الصور والعناصر absolute */
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* بين الفيديو والنص */
+  pointer-events: none;
+  /* عشان ما تمنع الضغط على العناصر */
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.5) 60%,
+      rgba(0, 0, 0, 0.85) 100%);
+  pointer-events: none;
+  /* عشان ما تمنع الضغط على النصوص */
+}
+
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.gradient-under-text {
+  z-index: 1;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-video.visible {
+  opacity: 1;
+  /* العنصر يظهر عند إضافة الصنف "visible" */
+}
+
+.bottom-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20vh;
+  /* غطي الجزء السفلي فقط */
+  z-index: 2;
+  /* فوق الفيديو وتحت النص */
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  /*
+  opacity: 0; /* النصوص مخفية افتراضيًا */
+  transition: opacity 1s ease-in-out;
+}
+
+.content.visible {
+  opacity: 1;
+  /* النصوص تظهر عند إضافة الصنف "visible" */
+}
+
+
+.content p {
+  line-height: 1.6;
+}
+
+.main-title {
+  font-weight: bold;
+  position: relative;
+  right: -50px;
+  top: 350px;
+  font-size: 69px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Add styles or remove the empty ruleset */
+.main-text {
+  right: -50px;
+  top: 340px;
+  position: relative;
+  font-size: 18px;
+  color: #706e6e;
+}
+
+.image1 {
+  position: absolute;
+  top: 1000px;
+  right: 0;
+  /* 👈 ده اللي يخليها في أقصى اليمين */
+  width: 750px;
+  height: 550px;
+  border: 1px solid white;
+  border-right: none;
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.additional-content .title1 {
+  top: 300px;
+  right: -50px;
+  position: relative;
+  z-index: 2;
+  color: white;
+  /* لون مختلف مثلاً للعنوان */
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.additional-content .text1 {
+  right: -50px;
+  top: 320px;
+  /* تعديل الموضع حسب الحاجة */
+  position: relative;
+  z-index: 2;
+  color: #909090;
+  /* لون مختلف للنص */
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.title2 {
+  top: 760px;
+  left: 850px;
+  position: relative;
+  z-index: 2;
+  color: white;
+  /* لون مختلف مثلاً للعنوان */
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left
+}
+
+.text2 {
+  left: 850px;
+  top: 780px;
+  /* تعديل الموضع حسب الحاجة */
+  position: relative;
+  z-index: 2;
+  color: #909090;
+  /* لون مختلف للنص */
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 600px;
+  text-align: left
+}
+
+.image2 {
+  position: absolute;
+  top: 1800px;
+  left: 0;
+  /* 👈 ده اللي يخليها في أقصى اليمين */
+  width: 750px;
+  height: 550px;
+  border: 1px solid white;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+  border-left: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.title3 {
+  top: 1140px;
+  right: -50px;
+  position: relative;
+  z-index: 2;
+  color: white;
+  /* لون مختلف مثلاً للعنوان */
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left
+}
+
+.text3 {
+  right: -50px;
+  top: 1180px;
+  /* تعديل الموضع حسب الحاجة */
+  position: relative;
+  z-index: 2;
+  color: #909090;
+  /* لون مختلف للنص */
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 600px;
+  text-align: left
+}
+
+.title4 {
+  top: 2270px;
+  left: 50px;
+  color: white;
+  position: relative;
+  position: relative;
+  z-index: 2;
+  font-size: 40px;
+  line-height: 1.5;
+  max-width: 600px;
+  text-align: left
+}
+
+.text4 {
+  top: 2290px;
+  left: 50px;
+  position: relative;
+  z-index: 2;
+  color: #909090;
+  /* لون مختلف للنص */
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 600px;
+  text-align: left
+}
+
+.image3 {
+  position: absolute;
+  top: 2600px;
+  right: 0;
+  /* 👈 ده اللي يخليها في أقصى اليمين */
+  width: 750px;
+  height: 550px;
+  border: 1px solid white;
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
+  border-right: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.my-block1 {
+  position: relative;
+  top: 310px;
+  left: 50px;
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 30px 0;
+  width: 10%;
+  /* أو أي عرض يناسبك */
+}
+
+.my-block2 {
+  position: relative;
+  top: 770px;
+  left: 850px;
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 30px 0;
+  width: 10%;
+  /* أو أي عرض يناسبك */
+}
+
+.my-block3 {
+  position: relative;
+  top: 1280px;
+  right: -50px;
+  border: none;
+  border-top: 2px solid #ccc;
+  border-radius: 10px;
+  margin: 30px 0;
+  width: 10%;
+  /* أو أي عرض يناسبك */
+}
+
+.my-block4 {
+  position: relative;
+  top: 1400px;
+  left: 75px;
+  border: none;
+  border-radius: 10px;
+  margin: 30px auto;;
+  width: 90%;
+  border-radius: 20px;   /* دوران الحواف */  /* مسافة داخلية ليظهر التأثير */
+  display: inline-block; /* أو أي عرض يناسبك */
+  border-top: 2px solid #4e4e4e;
+}
+
+.my-block1,
+.my-block2,
+.my-block3 {
+  margin: 20px 0;
+}
+
+.my-btn1 {
+  position: relative;
+  top: 360px;
+  left: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  padding: 17px 75px;
+  border-radius: 50px;
+  border: 1px solid black;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.my-btn2 {
+  position: relative;
+  top: 820px;
+  left: 850px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  padding: 17px 75px;
+  border-radius: 50px;
+  border: 1px solid black;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.my-btn3 {
+  position: relative;
+  top: 1220px;
+  left: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  padding: 17px 75px;
+  border-radius: 50px;
+  border: 1px solid black;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.my-btn1:hover,
+.my-btn2:hover,
+.my-btn3:hover {
+  background-color: #e0e0e0;
+
+  color: black;
+}
+
+.image4 {
+  position: absolute;
+  top: 4100px;
+  left: 700px;
+  width: 750px;
+  height: 600px;
+  border: 1px solid white;
+  border-radius: 17px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.center-video {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+.video-title {
+  position: absolute;
+  top: 3400px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+video_title{
+  color: #fff;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2em;
+  background: #222;
+  border-radius: 15px;
+  padding: 10px 20px;
+  z-index: 1000;
+  position: relative;
+}
+.bottom-video {
+  position: absolute;
+  top: 3450px; /* تحديد الموضع حسب نمط موقعك */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 460px;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.video-error {
+  text-align: center;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid red;
+}
+
+.video-error button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.video-error button:hover {
+  background-color: #cc3333;
+}
+
+fotter{
+  top: 7150px;
+}
